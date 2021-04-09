@@ -1,0 +1,10 @@
+name: istio unit test
+on: [push, pull_request]
+jobs:
+  run-unittest:
+    runs-on: [self-hosted]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: make -e "T=-v -count=1" build racetest binaries-test
