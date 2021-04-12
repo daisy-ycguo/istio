@@ -1,0 +1,10 @@
+name: gen-test
+on: [push, pull_request]
+jobs:
+  run-gentest:
+    runs-on: [self-hosted]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: make gen-check
